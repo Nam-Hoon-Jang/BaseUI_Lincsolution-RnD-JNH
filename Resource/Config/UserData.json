@@ -1,0 +1,7 @@
+{
+  "UserDataPath": "./demo-data",
+  "BuildFileDir": "./demo-data",
+  "UserLanguage": "English",
+  "JobLogStoragePeriod": 1000,
+  "SystemLogStoragePeriod": 1000
+}

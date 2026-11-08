@@ -1,0 +1,29 @@
+﻿<Application x:Class="BaseUI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:BaseUI"
+             Startup="ApplicationStart">
+    <Application.Resources>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type vm:MainViewModel}">
+                <vm:MainView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+                <vm:DashboardView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:MonitoringViewModel}">
+                <vm:MonitoringView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:PreferenceViewModel}">
+                <vm:PreferenceView/>
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/Dictionary/String.en-US.xaml"/>
+                <ResourceDictionary Source="/Resource/Dictionary/FontDic.xaml"/>
+                <ResourceDictionary Source="/Resource/Dictionary/ColorDic.Light.xaml"/>
+                <ResourceDictionary Source="/Resource/Dictionary/IconDic.xaml"/>
+                <ResourceDictionary Source="/Resource/Dictionary/ControlDic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

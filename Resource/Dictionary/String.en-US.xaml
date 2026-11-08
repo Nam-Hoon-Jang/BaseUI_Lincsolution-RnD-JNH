@@ -1,0 +1,103 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    
+    <!--#region MainViewText-->
+    <s:String x:Key="MainTitle_Build">Build</s:String>
+    <s:String x:Key="MainTitle_Status">Status</s:String>
+    <s:String x:Key="MainTitle_ManualMode">Manual Mode</s:String>
+    <s:String x:Key="MainTitle_AutoMode">Auto Mode</s:String>
+    <s:String x:Key="MainTitle_Light">Light</s:String>
+    <s:String x:Key="MainTitle_Dark">Dark</s:String>
+
+    <s:String x:Key="MainSubTitle_EmergencyIdle" xml:space="preserve"> EMERGENCY&#13; STOP</s:String>
+    <s:String x:Key="MainSubTitle_EmergencyPressed" xml:space="preserve"> EMERGENCY&#13; RESET</s:String>
+    
+    <s:String x:Key="MainMenu_Dashboard">Dashboard</s:String>
+    <s:String x:Key="MainMenu_Build">Build</s:String>
+    <s:String x:Key="MainMenu_Monitoring">Monitoring</s:String>
+    <s:String x:Key="MainMenu_Control">Control</s:String>
+    <s:String x:Key="MainMenu_LogList">Log List</s:String>
+    <s:String x:Key="MainMenu_BuildParameter">Build Parameter</s:String>
+    <s:String x:Key="MainMenu_Preferences">Preference</s:String>
+    <!--#endregion-->
+
+    <!--#region DashboardViewText-->
+    <s:String x:Key="DashboardTitle_BuildFile">Running File Preview</s:String>
+    <s:String x:Key="DashboardTitle_BuildProcess">Build Process</s:String>
+    <s:String x:Key="DashboardTitle_BuildFileList">Build File List</s:String>
+    <s:String x:Key="DashboardTitle_BuildOverview">Build Overview</s:String>
+
+    <s:String x:Key="DashboardTSubitle_BuildProgress">Build Progress</s:String>
+
+    <s:String x:Key="DashboardSubTitle_TotalRunningTime">Total Running Time</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildStatus">Status</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildElapsedTime">Elapsed Time</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildRemainTime">Remaining Time</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildStartDate">Start Date</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildEndDate">End Date</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildCurrentHeight">Current Height</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildLayers">Layers</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildCurrentProcess">Current Process</s:String>
+    <s:String x:Key="DashboardContent_Status_Idle">Idle</s:String>
+    <s:String x:Key="DashboardContent_Status_Busy">Busy</s:String>
+    <s:String x:Key="DashboardContent_Status_Ready">Ready</s:String>
+    <s:String x:Key="DashboardContent_Status_Build">Building</s:String>
+    <s:String x:Key="DashboardContent_Status_Pause">Pause</s:String>
+    <s:String x:Key="DashboardContent_Status_Done">Done</s:String>
+    <s:String x:Key="DashboardContent_Status_Stop">Stop</s:String>
+    <s:String x:Key="DashboardContent_Status_Warn">Warn</s:String>
+    <s:String x:Key="DashboardContent_Status_Error">Error</s:String>
+    <!--#endregion-->
+
+    <!--#region MonitoringViewText-->
+    <s:String x:Key="MoniotoringSubMenu_Motion">Motion</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Optic">Optic</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Vat">Vat</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Printhead">Printhead</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Recoater">Recoater</s:String>
+    <s:String x:Key="MoniotoringSubMenu_BuildBox">BuildBox</s:String>
+    <s:String x:Key="MoniotoringSubMenu_CleanStation">Cleaning</s:String>
+    <!--#endregion-->
+    
+    <!--#region PreferenceViewText-->
+    <s:String x:Key="PreferenceTitle">Preferences</s:String>
+    <s:String x:Key="PreferenceSubTitle_ModelName">Model Name</s:String>
+    <s:String x:Key="PreferenceSubTitle_DateTime">Date Time</s:String>
+    <s:String x:Key="PreferenceSubTitle_Language">Language</s:String>
+    <s:String x:Key="PreferenceSubTitle_SoftwareVersion">Software Version</s:String>
+    <s:String x:Key="PreferenceSubTitle_BuildFileFolderPath">Build File Folder Path</s:String>
+    <s:String x:Key="PreferenceSubTitle_LogFileStoragePeriod">Log File Storage Period</s:String>
+    <s:String x:Key="PreferenceContent_BuildLog">Build Log(day)</s:String>
+    <s:String x:Key="PreferenceContent_SystemLog">System Log(day)</s:String>
+    <s:String x:Key="PreferenceTag_Day">day</s:String>
+    <s:String x:Key="PreferenceBtnContentSet">Set</s:String>
+
+    <s:String x:Key="SettingsTitle">Settings</s:String>
+    <!--#endregion-->
+    
+    <!--#region BuildFileListViewText-->
+    <s:String x:Key="BuildFileListTitle_FileName">File Name</s:String>
+    <s:String x:Key="BuildFileListTitle_UploadDate">Uploaded Date</s:String>
+    <s:String x:Key="BuildFileListTitle_FilePreview">Preview</s:String>
+    <s:String x:Key="BuildFileListTitle_BuildStart">Build Start</s:String>
+    <!--#endregion-->
+    
+    <!--#region AlarmListPopupViewText-->
+    <s:String x:Key="AlarmListPopup_Clear">Clear All</s:String>
+    <s:String x:Key="AlarmListPopupLabel_Info">Information</s:String>
+    <s:String x:Key="AlarmListPopupLabel_Warn">Warning</s:String>
+    <s:String x:Key="AlarmListPopupLabel_Error">Error</s:String>
+    <!--#endregion-->
+    
+    <!--#region PopupViewText-->
+    <s:String x:Key="Popup_OK">OK</s:String>
+    <s:String x:Key="Popup_Yes">Yes</s:String>
+    <s:String x:Key="Popup_No">No</s:String>
+    <!--#endregion-->
+
+    <!--#region Alarm Messages-->
+    <s:String x:Key="Alarm_Warn_ClearAllAlarms">Clear All Alarms in List?</s:String>
+    
+    <!--#endregion-->
+</ResourceDictionary>

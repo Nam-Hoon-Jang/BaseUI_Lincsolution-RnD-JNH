@@ -1,0 +1,103 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <!--#region MainViewText-->
+    <s:String x:Key="MainTitle_Build">빌드</s:String>
+    <s:String x:Key="MainTitle_Status">상태</s:String>
+    <s:String x:Key="MainTitle_ManualMode">수동 모드</s:String>
+    <s:String x:Key="MainTitle_AutoMode">자동 모드</s:String>
+    <s:String x:Key="MainTitle_Light">밝게</s:String>
+    <s:String x:Key="MainTitle_Dark">어둡게</s:String>
+
+    <s:String x:Key="MainSubTitle_EmergencyIdle">비상 정지</s:String>
+    <s:String x:Key="MainSubTitle_EmergencyPressed">비상 정지&#13;해제</s:String>
+
+    <s:String x:Key="MainMenu_Dashboard">대시 보드</s:String>
+    <s:String x:Key="MainMenu_Build">빌드</s:String>
+    <s:String x:Key="MainMenu_Monitoring">모니터링</s:String>
+    <s:String x:Key="MainMenu_Control">제어</s:String>
+    <s:String x:Key="MainMenu_LogList">로그 목록</s:String>
+    <s:String x:Key="MainMenu_BuildParameter">빌드 파라미터</s:String>
+    <s:String x:Key="MainMenu_Preferences">설정</s:String>
+    <!--#endregion-->
+
+    <!--#region DashboardViewText-->
+    <s:String x:Key="DashboardTitle_BuildFile">빌드 파일 보기</s:String>
+    <s:String x:Key="DashboardTitle_BuildProcess">빌드 진행도</s:String>
+    <s:String x:Key="DashboardTitle_BuildFileList">빌드 파일 목록</s:String>
+    <s:String x:Key="DashboardTitle_BuildOverview">빌드 진행 상태</s:String>
+
+    <s:String x:Key="DashboardTSubitle_BuildProgress">빌드 상태</s:String>
+
+    <s:String x:Key="DashboardSubTitle_TotalRunningTime">전체 빌드 진행 시간</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildStatus">상태</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildElapsedTime">소요 시간</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildRemainTime">남은 시간</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildStartDate">시작일</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildEndDate">종료일</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildCurrentHeight">현재 높이</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildLayers">레이어</s:String>
+    <s:String x:Key="DashboardSubTitle_BuildCurrentProcess">현재 시퀀스</s:String>
+    <s:String x:Key="DashboardContent_Status_Idle">대기</s:String>
+    <s:String x:Key="DashboardContent_Status_Busy">작동 중</s:String>
+    <s:String x:Key="DashboardContent_Status_Ready">준비 완료</s:String>
+    <s:String x:Key="DashboardContent_Status_Build">빌드 중</s:String>
+    <s:String x:Key="DashboardContent_Status_Pause">일시 정지</s:String>
+    <s:String x:Key="DashboardContent_Status_Done">완료</s:String>
+    <s:String x:Key="DashboardContent_Status_Stop">중단</s:String>
+    <s:String x:Key="DashboardContent_Status_Warn">경고</s:String>
+    <s:String x:Key="DashboardContent_Status_Error">에러</s:String>
+    <!--#endregion-->
+
+    <!--#region MonitoringViewText-->
+    <s:String x:Key="MoniotoringSubMenu_Motion">모션</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Optic">광학</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Vat">수조</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Printhead">프린트헤드</s:String>
+    <s:String x:Key="MoniotoringSubMenu_Recoater">리코터</s:String>
+    <s:String x:Key="MoniotoringSubMenu_BuildBox">빌드박스</s:String>
+    <s:String x:Key="MoniotoringSubMenu_CleanStation">클리닝</s:String>
+    <!--#endregion-->
+
+    <!--#region PreferenceViewText-->
+    <s:String x:Key="PreferenceTitle">UI 설정</s:String>
+    <s:String x:Key="PreferenceSubTitle_ModelName">모델명</s:String>
+    <s:String x:Key="PreferenceSubTitle_DateTime">날짜 및 시간</s:String>
+    <s:String x:Key="PreferenceSubTitle_Language">언어 설정</s:String>
+    <s:String x:Key="PreferenceSubTitle_SoftwareVersion">버전</s:String>
+    <s:String x:Key="PreferenceSubTitle_BuildFileFolderPath">빌드 파일 폴더 경로</s:String>
+    <s:String x:Key="PreferenceSubTitle_LogFileStoragePeriod">로그 파일 보관 기간</s:String>
+    <s:String x:Key="PreferenceContent_BuildLog">빌드 로그(일)</s:String>
+    <s:String x:Key="PreferenceContent_SystemLog">시스템 로그(day)</s:String>
+    <s:String x:Key="PreferenceTag_Day">일</s:String>
+    <s:String x:Key="PreferenceBtnContentSet">설정</s:String>
+
+    <s:String x:Key="SettingsTitle">장비 설정</s:String>
+    <!--#endregion-->
+    
+    <!--#region BuildFileListViewText-->
+    <s:String x:Key="BuildFileListTitle_FileName">파일 이름</s:String>
+    <s:String x:Key="BuildFileListTitle_UploadDate">파일 업로드일</s:String>
+    <s:String x:Key="BuildFileListTitle_FilePreview">미리보기</s:String>
+    <s:String x:Key="BuildFileListTitle_BuildStart">빌드 시작</s:String>
+    <!--#endregion-->
+    
+    <!--#region AlarmListPopupViewText-->
+    <s:String x:Key="AlarmListPopup_Clear">전체 삭제</s:String>
+    <s:String x:Key="AlarmListPopupLabel_Info">알림</s:String>
+    <s:String x:Key="AlarmListPopupLabel_Warn">경고</s:String>
+    <s:String x:Key="AlarmListPopupLabel_Error">에러</s:String>
+    <!--#endregion-->
+
+    <!--#region PopupViewText-->
+    <s:String x:Key="Popup_OK">확인</s:String>
+    <s:String x:Key="Popup_Yes">예</s:String>
+    <s:String x:Key="Popup_No">아니오</s:String>
+    <!--#endregion-->
+
+    <!--#region Alarm Messages-->
+    <s:String x:Key="Alarm_Warn_ClearAllAlarms">알림 목록을 초기화하시겠습니까?</s:String>
+
+    <!--#endregion-->
+</ResourceDictionary>

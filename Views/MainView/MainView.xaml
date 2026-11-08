@@ -1,0 +1,179 @@
+﻿<Window x:Class="BaseUI.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BaseUI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        ResizeMode="NoResize" AllowsTransparency="False"
+        Width="1920" Height="1080" WindowState="Maximized"
+        d:DataContext="{d:DesignInstance Type=local:TestMainViewModel, IsDesignTimeCreatable=True}"
+        x:Name="MainViewWindow" >
+    <Grid Width="{Binding ElementName=MainViewWindow, Path=ActualWidth}" Height="{Binding ElementName=MainViewWindow, Path=ActualHeight}" Background="{DynamicResource BrushMainBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="ResizeableMainColumn" MaxWidth="280"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="176"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="88"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="88"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--#region Title Bar-->
+        <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource StGridTitleLogo}" MouseLeftButtonDown="WindowDrag" Panel.ZIndex="2"
+              Tag="{Binding TagGridTitleLogo}">
+            <Border BorderBrush="{DynamicResource BrushBorder}" BorderThickness="0 0 0.5 0.5"/>
+            <Path x:Name="Logo" Data="{StaticResource GeometryLincsolution}" Height="36.62" Fill="{StaticResource BrushWhite}" Stretch="Uniform"/>
+        </Grid>
+        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Style="{StaticResource StGridTitle}" MouseLeftButtonDown="WindowDrag" Panel.ZIndex="2"
+              Tag="{Binding TagGridTitle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="88"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="88"/>
+                <ColumnDefinition Width="88"/>
+                <ColumnDefinition Width="88"/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton Grid.Column="0" Style="{StaticResource StMenuExpandButton}" Click="BtnExpand_Click"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <StackPanel Width="110" Style="{StaticResource StStackPanelTitle}">
+                    <Path Style="{StaticResource StPathTitle}"
+                          Data="{StaticResource GeometryBuild}"/>
+                    <TextBlock Style="{StaticResource StTextBlockTitle}"
+                               Text="{Binding ValueProgressBarTitle, Converter={StaticResource DoubleToPercentageString}}"/>
+                </StackPanel>
+
+                <StackPanel Width="Auto" Height="30" Style="{StaticResource StStackPanelTitle}">
+                    <Label Style="{StaticResource StLabelOverviewStatus}" Grid.Row="1" Tag="{Binding TagGridStatus}"/>
+                    <TextBlock Style="{StaticResource StTextBlockTitle}" Margin="10 0 0 0"
+                               Text="{DynamicResource MainTitle_Status}"/>
+                    
+                </StackPanel>
+                <StackPanel Width="131" Style="{StaticResource StStackPanelTitle}">
+                    <Path Style="{StaticResource StPathTitle}"
+                          Data="{StaticResource GeometryManualMode}"/>
+                    <TextBlock Style="{StaticResource StTextBlockTitle}"
+                               Text="{DynamicResource MainTitle_ManualMode}"/>
+                </StackPanel>
+                <StackPanel Width="278" Style="{StaticResource StStackPanelTitle}">
+                    <Path Style="{StaticResource StPathTitle}"
+                          Data="{StaticResource GeometryPage}"/>
+                    <TextBlock Width="250" Style="{StaticResource StTextBlockTitle}"
+                               />
+                </StackPanel>
+            </StackPanel>
+            <Grid Grid.Column="2">
+                <Border BorderThickness="0 0 1 0" BorderBrush="{DynamicResource BrushBorder}"/>
+                <ToggleButton Style="{StaticResource StTitleThemaButton}" 
+                              Command="{Binding Command}" 
+                              CommandParameter="{Binding CmdParBtnChangeThema}"
+                              IsChecked="{Binding IsCheckedBtnChangeThema, Mode=TwoWay}"/>
+            </Grid>
+            <ToggleButton Grid.Column="3" Style="{StaticResource StAlarmButton}" 
+                          Tag="{Binding TagAlarmBtn}"
+                          Command="{Binding Command}"
+                          CommandParameter="{Binding CmdParBtnAlarm}"
+                          IsChecked="{Binding IsCheckedBtnAlarm, Mode=TwoWay}"/>
+            <Button Grid.Column="4" Style="{StaticResource StTItleButton}" Tag="{StaticResource GeomtryMinimize}" Click="MinimizeWindow"/>
+            <Button Grid.Column="5" Style="{StaticResource StTItleButton}" Tag="{StaticResource GeomtryClose}" Click="CloseWindow"/>
+            <Border Grid.Column="0" Grid.ColumnSpan="6" BorderBrush="{DynamicResource BrushBorder}" BorderThickness="0.5"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Progress Bar-->
+        <Grid Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="1">
+            <ProgressBar Style="{StaticResource StProgressBarTitle}" Value="{Binding ValueProgressBarTitle}" Tag="{Binding TagProgressBarTitle}" Background="{DynamicResource BrushMainBackground}"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Main Menu-->
+        <Grid Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="88"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <RadioButton x:Name="BtnDashboard" Grid.Row="0" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryHome}" Content="{DynamicResource MainMenu_Dashboard}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnDashboard}"/>
+            <RadioButton x:Name="BtnBuild" Grid.Row="1" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryBuild}" Content="{DynamicResource MainMenu_Build}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnBuild}"/>
+            <RadioButton x:Name="BtnMonitoring" Grid.Row="2" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryMonitoring}" Content="{DynamicResource MainMenu_Monitoring}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnMonitoring}"/>
+            <RadioButton x:Name="BtnControl" Grid.Row="3" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryControl}" Content="{DynamicResource MainMenu_Control}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnControl}"/>
+            <RadioButton x:Name="BtnLogList" Grid.Row="4" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryLogList}" Content="{DynamicResource MainMenu_LogList}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnLogList}"/>
+            <RadioButton x:Name="BtnBuildParameter" Grid.Row="5" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryBuildParameter}" Content="{DynamicResource MainMenu_BuildParameter}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnBuildParameter}"/>
+            <RadioButton x:Name="BtnPreference" Grid.Row="6" Style="{StaticResource StMenuButton}" 
+                         Tag="{StaticResource GeometryPreference}" Content="{DynamicResource MainMenu_Preferences}"
+                         Command="{Binding Command}"
+                         CommandParameter="{Binding CmdParBtnPreference}"/>
+            <Border Grid.Row="0" Grid.RowSpan="8" BorderBrush="{DynamicResource BrushBorder}" BorderThickness="0 0.5 0.5 0"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Sub Title Bar-->
+        <Grid Grid.Column="2" Grid.Row="2" Background="{DynamicResource BrushMainBackground}" Panel.ZIndex="3">
+            <ToggleButton Style="{StaticResource StEmergencyButton}" 
+                          Command="{Binding Command}"
+                          CommandParameter="{Binding CmdParBtnEmergencyStop}"
+                          IsChecked="{Binding IsCheckedBtnEmergencyStop, Mode=TwoWay}" Panel.ZIndex="3"/>
+            <Border Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="{DynamicResource BrushBorder}" BorderThickness="1" Background="Transparent" Panel.ZIndex="3"/>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Sub View-->
+        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2">
+            <ContentControl Content="{Binding CurrentViewModel}" Panel.ZIndex="0"/>
+            <Border BorderBrush="{DynamicResource BrushBorder}" BorderThickness="0.5 0.5 0 0"/>
+        </Grid>
+        <!--#endregion-->
+        
+        <!--#region Alarm Popup View-->
+        <local:AlarmListPopupView x:Name="AlarmListView" 
+                                  Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Panel.ZIndex="1"
+                                  VerticalAlignment="Top" HorizontalAlignment="Right"
+                                  ItemsSource="{Binding AlarmList}"
+                                  Visibility="{Binding AlarmListPopupVisibility}"
+                                  Command="{Binding Command}"
+                                  CmdParAlarmAllClear="{Binding CmdParBtnAlarmAllClear}"/>
+        <!--#endregion-->
+        
+        <!--#region Popup View-->
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Grid.RowSpan="2"
+              Background="{DynamicResource BrushPopupBackground}" Panel.ZIndex="2"
+              Visibility="{Binding PopupVisibility}">
+            <local:PopupView HorizontalAlignment="Center" VerticalAlignment="Center"
+                             PopupType="{Binding PopupType}"
+                             PopupContent="{Binding PopupContent}"
+                             Command="{Binding CommandPopup}"
+                             CmdParBtnLeft="{Binding CmdParBtnPopupLeft}"
+                             CmdParBtnRight="{Binding CmdParBtnPopupRight}"/>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Window>
+
+    

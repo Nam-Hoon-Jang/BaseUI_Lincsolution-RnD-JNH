@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FontFamily x:Key="font-weight-Bold">pack://application;,,,/Resource/Font/#Inter-Bold</FontFamily>
+    <FontFamily x:Key="font-weight-Meduium">pack://application;,,,/Resource/Font/#Inter-Medium</FontFamily>
+    <FontFamily x:Key="font-weight-Regular">pack://application;,,,/Resource/Font/#Inter-Regular</FontFamily>
+    <FontFamily x:Key="font-weight-SemiBold">pack://application;,,,/Resource/Font/#Inter-SemiBold</FontFamily>
+</ResourceDictionary>

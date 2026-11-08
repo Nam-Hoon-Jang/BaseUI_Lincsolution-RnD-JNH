@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="BaseUI.BuildFileListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BaseUI"
+             mc:Ignorable="d" Background="{DynamicResource BrushMainBackground}"
+             MinWidth="541" MaxWidth="776" Width="541" Height="340" x:Name="BuildFileListViewWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- List Header -->
+        <Grid Grid.Row="0" Background="{DynamicResource BrushIdleTextBoxBackground}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="0" x:Name="ResizeableColumnHeader"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="75"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Column="0" Style="{StaticResource StCheckBoxListView}"
+                      Checked="AllCheck" Unchecked="UnCheckAll"/>
+            <TextBlock Grid.Column="1" Text="{DynamicResource BuildFileListTitle_FileName}" Style="{StaticResource StTextBlockSubView_SubTitle}" FontSize="14" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="{DynamicResource BuildFileListTitle_UploadDate}" Style="{StaticResource StTextBlockSubView_SubTitle}" FontSize="14" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="3" Text="{DynamicResource BuildFileListTitle_FilePreview}" Style="{StaticResource StTextBlockSubView_SubTitle}" FontSize="14" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="4" Text="{DynamicResource BuildFileListTitle_BuildStart}" Style="{StaticResource StTextBlockSubView_SubTitle}" FontSize="14" HorizontalAlignment="Center"/>
+        </Grid>
+        <!-- List Items-->
+        <ListView x:Name="ContentList" Grid.Row="1" 
+                  ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                  ItemContainerStyle="{StaticResource StListViewItem}"
+                  BorderThickness="0" 
+                  Background="Transparent"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  VirtualizingPanel.IsVirtualizing="False"
+                  VirtualizingPanel.VirtualizationMode="Standard">
+            <ListView.Resources>
+                <Style TargetType="ScrollBar" BasedOn="{StaticResource StListViewScrollBar}"/>
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource StListViewItem}"/>
+            </ListView.Resources>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="{Binding ElementName=BuildFileListViewWindow, Path=ActualWidth}" 
+                          Height="45">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="{Binding ResizeableColumnWidth, RelativeSource={RelativeSource AncestorType={x:Type local:BuildFileListView}}, Converter={StaticResource DoubleToLengthConverter}}"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="75"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" Style="{StaticResource StCheckBoxListView}" IsChecked="{Binding IsChecked, Mode=TwoWay}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding FileName}" Style="{StaticResource StTextBlockSubView_Content}" FontSize="14" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding UploadDate}" Style="{StaticResource StTextBlockSubView_Content}" FontSize="14" HorizontalAlignment="Center"/>
+                        <Button Grid.Column="3" Style="{StaticResource StBuildFileListViewButton}" 
+                                Tag="{StaticResource GeometryPhoto}"
+                                Click="Btn_Click"
+                                IsEnabled="{Binding BtnPreviewStatus, Converter={StaticResource BtnStatusToEnabledConverter}}"
+                                Command="{Binding Command, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding CmdParBtnPreview, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource EnumPassConverter}}"/>
+                        <Button Grid.Column="4" Style="{StaticResource StBuildFileListViewButton_Rounded}" 
+                                Tag="{StaticResource GeometryPlay}"
+                                Click="Btn_Click"
+                                IsEnabled="{Binding BtnBuildStartStatus, Converter={StaticResource BtnStatusToEnabledConverter}}"
+                                Command="{Binding Command, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                CommandParameter="{Binding CmdParBtnBuildStart, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource EnumPassConverter}}"/>
+                        <Button Grid.Column="5" Style="{StaticResource StBuildFileListViewButton_NoBorder}"
+                                Tag="{StaticResource GeometryBurgerButton}" BorderBrush="Transparent" BorderThickness="0"
+/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Border Grid.Row="0" Grid.RowSpan="2" BorderThickness="1" BorderBrush="{DynamicResource BrushBorder}"/>
+        <Border Grid.Row="0" BorderThickness="0 0 0 1" BorderBrush="{DynamicResource BrushBorder}"/>
+    </Grid>
+</UserControl>
